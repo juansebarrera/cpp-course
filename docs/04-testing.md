@@ -54,8 +54,12 @@ Salida esperada:
 ```powershell
 cmake -B build -G Ninja -DCPP_COURSE_CATCH2_DEMO=ON
 cmake --build build
-ctest --test-dir build -R catch2 --output-on-failure
+ctest --test-dir build -R "mean|median" --output-on-failure
 ```
+
+`catch_discover_tests` registra cada `TEST_CASE` con su nombre, asi que el
+filtro usa el texto del caso (no `catch2`). Para ver los nombres:
+`ctest --test-dir build -N`.
 
 El primer configure descarga Catch2 (necesita red). Con la opcion en `OFF`
 (por defecto) el proyecto no requiere conexion.

@@ -27,8 +27,11 @@ ctest --test-dir build -R mod11 --output-on-failure
 # Catch2 (descarga en el primer configure)
 cmake -B build -G Ninja -DCPP_COURSE_CATCH2_DEMO=ON
 cmake --build build
-ctest --test-dir build --output-on-failure
+ctest --test-dir build -R "mean|median" --output-on-failure
 ```
+
+`catch_discover_tests` nombra cada test con el texto del `TEST_CASE`, no con el
+nombre del target: por eso el filtro es `mean|median`, no `catch2`.
 
 ## Catch2 en 20 segundos
 
