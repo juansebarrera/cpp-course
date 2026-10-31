@@ -5,7 +5,7 @@ Cada modulo anade una capa al proyecto acumulativo: una **agenda de contactos**
 que empieza como CLI sencilla y termina siendo una aplicacion robusta, testeada
 y persistente.
 
-[![CI](https://github.com/<usuario>/cpp-course/actions/workflows/ci.yml/badge.svg)](https://github.com/<usuario>/cpp-course/actions/workflows/ci.yml)
+[![CI](https://github.com/juansebarrera/cpp-course/actions/workflows/ci.yml/badge.svg)](https://github.com/juansebarrera/cpp-course/actions/workflows/ci.yml)
 
 ## Herramientas
 
