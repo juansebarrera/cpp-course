@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "CMake: configure",
+      "type": "shell",
+      "command": "cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug",
+      "problemMatcher": []
+    },
+    {
+      "label": "CMake: build",
+      "type": "shell",
+      "command": "cmake --build build",
+      "dependsOn": ["CMake: configure"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "CTest: run",
+      "type": "shell",
+      "command": "ctest --test-dir build --output-on-failure",
+      "dependsOn": ["CMake: build"],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+# Builds
+build/
+out/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+compile_commands.json
+CMakeUserPresets.json
+
+# Binarios y artefactos
+*.exe
+*.out
+*.o
+*.obj
+*.pdb
+*.ilk
+*.dll
+*.a
+*.lib
+*.gch
+*.pch
+*.log
+
+# Editores
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+!.vscode/launch.json
+.idea/
+*.swp
+*~
+
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store

@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug modulo 00",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/00-hola-mundo/mod00_demo.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": false,
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "C:/Users/juans/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin/gdb.exe",
+      "setupCommands": [
+        {
+          "description": "Pretty printing de GDB",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "CMake: build"
+    }
+  ]
+}

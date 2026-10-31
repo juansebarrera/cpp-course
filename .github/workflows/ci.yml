@@ -1,0 +1,32 @@
+name: ci
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  build:
+    name: build-and-test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            generator: Ninja
+            config: Debug
+          - os: windows-latest
+            generator: "Visual Studio 17 2022"
+            config: Debug
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurar CMake
+        run: cmake -B build -G "${{ matrix.generator }}" -DCMAKE_BUILD_TYPE=${{ matrix.config }}
+
+      - name: Compilar
+        run: cmake --build build --config ${{ matrix.config }}
+
+      - name: Tests
+        run: ctest --test-dir build -C ${{ matrix.config }} --output-on-failure
