@@ -13,17 +13,17 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: ubuntu-latest
-            generator: Ninja
+          - os: ubuntu-24.04
+            configure: cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug
             config: Debug
           - os: windows-latest
-            generator: "Visual Studio 17 2022"
+            configure: cmake -B build -DCMAKE_BUILD_TYPE=Debug
             config: Debug
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Configurar CMake
-        run: cmake -B build -G "${{ matrix.generator }}" -DCMAKE_BUILD_TYPE=${{ matrix.config }}
+        run: ${{ matrix.configure }}
 
       - name: Compilar
         run: cmake --build build --config ${{ matrix.config }}
